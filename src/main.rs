@@ -1,56 +1,8 @@
+mod todo;
+
 use std::io;
 use clearscreen;
-
-// create task struct
-struct Task {
-    name: String,
-    is_checked: bool,
-    // other properties like note, list type, deadline, priority...
-}
-
-fn add_new_task(mut p_todo_list: Vec<Task>, p_new_task: Task) -> Vec<Task> {
-
-    //add task to todo list and return todo list
-    p_todo_list.push(p_new_task);
-    p_todo_list
-}
-
-// // edit existing task
-// fn edit_task(){
-
-// }
-
-// check task on list
-fn check_task(p_todo_list: &mut Vec<Task>, p_name: String) {
-    // iterate over task and check the wanted task
-    for task in p_todo_list.iter_mut() {
-        if task.name == p_name {
-            task.is_checked = true;
-        }
-    }
-}
-
-// display current todo list
-fn display_todo_list(p_todo_list: &Vec<Task>, show_checked_tasks: bool) {
-
-    if show_checked_tasks {
-        println!{"\nChecked Tasks: "}
-        println!{"--------------------"}
-        for task in p_todo_list {
-            if task.is_checked {
-                println!("[x] {}", task.name);
-            }
-        }
-    } else {
-        println!{"\nTodo-List: "}
-        println!{"--------------------"}
-        for task in p_todo_list {
-            if !task.is_checked {
-                println!("[ ] {}", task.name);
-            }
-        }
-    }
-}
+use todo::{Task, add_new_task, display_todo_list, check_task};
 
 fn main() {
 
