@@ -20,19 +20,34 @@ fn add_new_task(mut p_todo_list: Vec<Task>, p_new_task: Task) -> Vec<Task> {
 
 // }
 
-// // check task on list
-// fn check_task(){
-
-// }
+// check task on list
+fn check_task(p_todo_list: &mut Vec<Task>, p_name: String) {
+    // iterate over task and check the wanted task
+    for task in p_todo_list.iter_mut() {
+        if task.name == p_name {
+            task.is_checked = true;
+        }
+    }
+}
 
 // display current todo list
-fn display_todo_list(p_todo_list: &Vec<Task>) {
+fn display_todo_list(p_todo_list: &Vec<Task>, show_checked_tasks: bool) {
 
-    println!{"Todo-List: "}
-    println!{"--------------------"}
-    for task in p_todo_list {
-        if !task.is_checked {
-            println!("{}", task.name);
+    if show_checked_tasks {
+        println!{"\nChecked Tasks: "}
+        println!{"--------------------"}
+        for task in p_todo_list {
+            if task.is_checked {
+                println!("{}", task.name);
+            }
+        }
+    } else {
+        println!{"\nTodo-List: "}
+        println!{"--------------------"}
+        for task in p_todo_list {
+            if !task.is_checked {
+                println!("{}", task.name);
+            }
         }
     }
 }
@@ -41,6 +56,15 @@ fn main() {
 
     // create list
     let mut todo_list: Vec<Task> = Vec::new();
+
+    // dummy tasks
+    todo_list.push(Task{name: "Running".to_string(), is_checked: false,});
+    todo_list.push(Task{name: "Biking".to_string(), is_checked: true,});
+    todo_list.push(Task{name: "Homework".to_string(), is_checked: false,});
+    todo_list.push(Task{name: "Cooking".to_string(), is_checked: true,});
+    todo_list.push(Task{name: "Cleaning dishes".to_string(), is_checked: false,});
+    todo_list.push(Task{name: "Emails".to_string(), is_checked: false,});
+
     clearscreen::clear().expect("Failed to clear screen.");
 
     // welcome message
@@ -63,7 +87,7 @@ fn main() {
         io::stdin().read_line(&mut option).expect("Failed to read option!");    
         // switch case to activate function 
         match option.trim() {
-            "s" => display_todo_list(&todo_list),
+            "s" => display_todo_list(&todo_list, false),
             "a" => {
                 // create new task
                 let mut new_task = Task {
@@ -77,7 +101,17 @@ fn main() {
 
                 todo_list = add_new_task(todo_list, new_task);
             },
+            "c" => {
+                let mut name = String::new();
+
+                // ask user for task name
+                println!("\nEnter task name you want to check: ");
+                io::stdin().read_line(&mut name).expect("Failed to read task name!");    
+
+                check_task(&mut todo_list, name);
+            },
             "q" => {break;},
+            "h" => display_todo_list(&todo_list, true),
             _ => println!("\nWork in progress, option not available!"), 
         }
     }
