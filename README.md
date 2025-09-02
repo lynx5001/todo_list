@@ -6,8 +6,8 @@ This is a starter project to learn Rust. Within the project a basic todo list sh
 ## Key features
 - [x] adding a new task to the TODO list
 - [ ] editing existing tasks in the TODO list
-- [ ] checking tasks in the TODO list
-- [ ] viewing already checked tasks from the TODO list
+- [x] checking tasks in the TODO list
+- [x] viewing already checked tasks from the TODO list
 - [x] displaying the current TODO list
 
 ## Current 

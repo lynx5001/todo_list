@@ -38,7 +38,7 @@ fn display_todo_list(p_todo_list: &Vec<Task>, show_checked_tasks: bool) {
         println!{"--------------------"}
         for task in p_todo_list {
             if task.is_checked {
-                println!("{}", task.name);
+                println!("[x] {}", task.name);
             }
         }
     } else {
@@ -46,7 +46,7 @@ fn display_todo_list(p_todo_list: &Vec<Task>, show_checked_tasks: bool) {
         println!{"--------------------"}
         for task in p_todo_list {
             if !task.is_checked {
-                println!("{}", task.name);
+                println!("[ ] {}", task.name);
             }
         }
     }
