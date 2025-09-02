@@ -1,9 +1,14 @@
-This is a starter project to learn Rust.
+# Starter project TODO list
 
-A basic Todo list is implemented via CLI.
+## Project description
+This is a starter project to learn Rust. Within the project a basic todo list should be implemented, which can be interacted with via the CLI. The user should be able to make use of the following key features.
 
-### Key features
-- adding new tasks
-- editing existing tasks
-- checking tasks
-- displaying the current to do list
+## Key features
+- [x] adding a new task to the TODO list
+- [ ] editing existing tasks in the TODO list
+- [ ] checking tasks in the TODO list
+- [ ] viewing already checked tasks from the TODO list
+- [x] displaying the current TODO list
+
+## Current 
+Currently the application allows to add a new task, and display the current TODO list. The application does not have a database, so the list can be created and interacted with during runtime. After ending the programm, all added data is lost. A database integration is planned in the future.
