@@ -2,7 +2,7 @@ mod todo;
 
 use std::io;
 use clearscreen;
-use todo::{Task, add_new_task, display_todo_list, check_task, display_task_details, edit_task};
+use todo::{Task, add_new_task, display_todo_list, check_task, display_task_details, edit_task, delete_task};
 
 fn main() {
 
@@ -32,6 +32,7 @@ fn main() {
         println!("d - show task details");
         println!("c - check task on todo-list");
         println!("h - see checked tasks");
+        println!("x - delete task");
         println!("q - quit application");
 
         // take user input
@@ -103,6 +104,14 @@ fn main() {
             },
             "q" => {break;},
             "h" => display_todo_list(&todo_list, true),
+            "x" => {
+                let mut name = String::new();
+                println!("\nEnter task name to delete:");
+
+                io::stdin().read_line(&mut name).expect("Failed to read task name!");
+                name = name.trim().to_string();
+                delete_task(&mut todo_list, name);
+            }
             _ => println!("\nWork in progress, option not available!"), 
         }
     }
