@@ -4,7 +4,7 @@
 pub struct Task {
     pub name: String,
     pub is_checked: bool,
-    // note: String,
+    pub note: String,
     // type: String,
     // deadline: u8,
     // priority: String,
@@ -12,7 +12,7 @@ pub struct Task {
 
 impl Task {
     pub fn new(name: impl Into<String>) -> Self {
-        Self { name: name.into(), is_checked: false }
+        Self { name: name.into(), is_checked: false, note: String::new() }
     }
 }
 
@@ -32,10 +32,27 @@ pub fn check_task(p_todo_list: &mut Vec<Task>, p_name: String) {
     }
 }
 
-// // edit existing task
-// fn edit_task(){
+// display task details
+pub fn display_task_details(p_todo_list: &Vec<Task>, p_name: String){
+    // iterate over task and display the task details
+    for task in p_todo_list {
+        if task.name == p_name {
+            println!("\nTask {} \n-------------------- \nChecked: {}, \nNote: {}", task.name, task.is_checked.to_string(), task.note);
+        }
+    }
+}
 
-// }
+pub fn edit_task(p_todo_list: &mut Vec<Task>, p_name: String, p_edited_task: &Task) {
+    for task in p_todo_list.iter_mut() {
+        println!("search for task to change");
+        if task.name == p_name {
+            println!("changing task");
+            task.name = p_edited_task.name.clone();
+            task.note = p_edited_task.note.clone();
+            break;
+        }
+    }
+}
 
 pub fn display_todo_list(p_todo_list: &Vec<Task>, show_checked_tasks: bool) {
 
