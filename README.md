@@ -5,9 +5,10 @@ This is a starter project to learn Rust. Within the project a basic todo list sh
 
 ## Key features
 - [x] adding a new task to the TODO list
-- [ ] editing existing tasks in the TODO list
+- [x] editing existing tasks in the TODO list
 - [x] checking tasks in the TODO list
 - [x] viewing already checked tasks from the TODO list
+- [x] delete task
 - [x] displaying the current TODO list
 
 ## Current 
@@ -15,4 +16,14 @@ Currently the application allows to add a new task, and display the current TODO
 
 ## Planned changes
 - [ ] Frontend implementation
-- [ ] Database integration
+- [x] write to csv
+- [ ] read from csv
+
+## applied rust priciples
+- borrowing, copying
+- functions
+- variables
+- mutability, immutability
+- crates
+- modules
+- io
