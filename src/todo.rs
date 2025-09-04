@@ -23,7 +23,7 @@ pub fn check_task(p_todo_list: &mut Vec<Task>, p_name: String) {
     // iterate over task and check the wanted task
     for task in p_todo_list.iter_mut() {
         if task.name == p_name {
-            task.is_checked = true;
+            task.is_checked = !task.is_checked;
         }
     }
 }

@@ -1,29 +1,27 @@
 # TODO list
 
 ## Project description
-This is a starter project to learn Rust. Within the project a basic todo list should be implemented, which can be interacted with via the CLI. The user should be able to make use of the following key features.
+This is a starter project to learn Rust. Within the project a basic todo list is implemented, which can be interacted with via the CLI. The user is able to make use of the following key features. Furthermore the application is complemented with a csv file and read/write functions. When starting the application the csv is read, when rightfully quiting the application with "q - Enter", the current TODO-list is written into the csv-file.
 
 ## Key features
 - [x] adding a new task to the TODO list
-- [x] editing existing tasks in the TODO list
-- [x] checking tasks in the TODO list
-- [x] viewing already checked tasks from the TODO list
-- [x] delete task
-- [x] displaying the current TODO list
-
-## Current 
-Currently the application allows to add a new task, and display the current TODO list. The application does not have a database, so the list can be created and interacted with during runtime. After ending the programm, all added data is lost. A database integration is planned in the future. Furthermore a frontend implementation is planned to allow easier interaction with the list
+- [x] see details of and edit existing tasks
+- [x] checking and unchecking tasks
+- [x] deleteing tasks
+- [x] displaying unchecked and checked tasks
 
 ## Planned changes
 - [ ] Frontend implementation
 - [x] write to csv
-- [ ] read from csv
+- [x] read from csv
 
-## applied rust priciples
+## Applied rust priciples
 - borrowing, copying
+- structs
 - functions
 - variables
 - mutability, immutability
-- crates
-- modules
-- io
+- use of crates
+- use of modules
+- command line input and output
+- read and write csv files
